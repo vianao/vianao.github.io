@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>你好，世界</title>
+      <link href="/2022/11/30/%E4%BD%A0%E5%A5%BD%EF%BC%81%E4%B8%96%E7%95%8C/"/>
+      <url>/2022/11/30/%E4%BD%A0%E5%A5%BD%EF%BC%81%E4%B8%96%E7%95%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="你好！世界"><a href="#你好！世界" class="headerlink" title="你好！世界"></a>你好！世界</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">mv</span> <span class="string">/etc/yum.repo.d/*</span> <span class="string">/home</span></span><br><span class="line"><span class="string">vi</span> <span class="string">/etc/yum.repo.d/a.repo</span></span><br></pre></td></tr></table></figure><p>在repo里加入</p><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[a]</span><br><span class="line">name=a</span><br><span class="line">baseurl=file:///media</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=0</span><br></pre></td></tr></table></figure><p>保存退出wq<br><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/cdrom /media</span><br><span class="line">yum install -y httpd</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
