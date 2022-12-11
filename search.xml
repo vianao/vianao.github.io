@@ -8,7 +8,7 @@
       <link href="/posts/37ae.html"/>
       <url>/posts/37ae.html</url>
       
-        <content type="html"><![CDATA[<h2 id="图片添加"><a href="#图片添加" class="headerlink" title="图片添加"></a>图片添加</h2><p>```md<br>git add .<br>git commit -m “更新图片”<br>git push</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="图片添加"><a href="#图片添加" class="headerlink" title="图片添加"></a>图片添加</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;更新图片&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>]]></content>
       
       
       
