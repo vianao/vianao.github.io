@@ -126,8 +126,8 @@ li.card-archive-list-item {
 } */
 @font-face {
   font-family: "vianao";
-  src: url(/font/vianao.woff2);
-  /* src: url(https://npm.elemecdn.com/anzhiyu-blog@1.1.6/fonts/ZhuZiAWan.woff2); */
+  /* src: url(/font/vianao.woff2); */
+  src: url(https://npm.elemecdn.com/anzhiyu-blog@1.1.6/fonts/ZhuZiAWan.woff2);
   /* 定义加粗样式(加粗多少) */
   font-weight: normal;
   /* 定义字体样式(斜体/非斜体) */
@@ -392,15 +392,6 @@ div#category {
   background: transparent !important;
 }
 
-.iconfont {
-  font-family: "iconfont" !important;
-  font-size: 3em;
-  /* 可以定义图标大小 */
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  }
-  
   /* 夜间模式菜单栏发光字 */
 [data-theme="dark"] #nav .site-page,
 [data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {
