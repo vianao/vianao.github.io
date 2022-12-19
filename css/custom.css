@@ -285,35 +285,56 @@ svg.icon {
 #recent-posts > .recent-post-item {
   background: rgba(255, 255, 255, 0.9);
 }
+[data-theme="dark"] #recent-posts > .recent-post-item {
+  background: #191919ee;
+}
 
 /* 首页侧栏卡片 */
 #aside-content .card-widget {
   background: rgba(255, 255, 255, 0.9);
+}
+[data-theme="dark"] #aside-content .card-widget {
+  background: #191919ee;
 }
 
 /* 文章页面正文背景 */
 div#post {
   background: rgba(255, 255, 255, 0.9);
 }
+[data-theme="dark"] div#post {
+  background: #191919ee;
+}
 
 /* 分页页面 */
 div#page {
   background: rgba(255, 255, 255, 0.9);
+}
+[data-theme="dark"] div#page {
+  background: #191919ee;
 }
 
 /* 归档页面 */
 div#archive {
   background: rgba(255, 255, 255, 0.9);
 }
+[data-theme="dark"] div#archive {
+  background: #191919ee;
+}
 
 /* 标签页面 */
 div#tag {
   background: rgba(255, 255, 255, 0.9);
 }
+[data-theme="dark"] div#tag {
+  background: #191919ee;
+}
 
 /* 分类页面 */
 div#category {
   background: rgba(255, 255, 255, 0.9);
+}
+[data-theme="dark"] div#category {
+  background: #191919ee;
 }
 /* 以上安知鱼 */
 
