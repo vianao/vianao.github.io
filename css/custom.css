@@ -1,5 +1,5 @@
  /* 归档样式 */
-span.card-archive-list-count {
+ span.card-archive-list-count {
   width: auto;
   text-align: left;
   font-size: 1.5rem;
@@ -138,6 +138,7 @@ li.card-archive-list-item {
 
 div#menus {
   font-family: "vianao";
+  color: rgba(22, 22, 22, 0.4);
 }
 h1#site-title {
   font-family: "vianao";
@@ -283,7 +284,7 @@ svg.icon {
 
 /* 首页文章卡片 */
 #recent-posts > .recent-post-item {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.4);
 }
 [data-theme="dark"] #recent-posts > .recent-post-item {
   background: rgba(22, 22, 22, 0.6);
@@ -291,7 +292,7 @@ svg.icon {
 
 /* 首页侧栏卡片 */
 #aside-content .card-widget {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.4);
 }
 [data-theme="dark"] #aside-content .card-widget {
   background: rgba(22, 22, 22, 0.6);
@@ -299,7 +300,7 @@ svg.icon {
 
 /* 文章页面正文背景 */
 div#post {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.4);
 }
 [data-theme="dark"] div#post {
   background: rgba(22, 22, 22, 0.4);
@@ -307,7 +308,7 @@ div#post {
 
 /* 分页页面 */
 div#page {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.4);
 }
 [data-theme="dark"] div#page {
   background: rgba(22, 22, 22, 0.6);
@@ -315,7 +316,7 @@ div#page {
 
 /* 归档页面 */
 div#archive {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.4);
 }
 [data-theme="dark"] div#archive {
   background: rgba(22, 22, 22, 0.6);;
@@ -323,7 +324,7 @@ div#archive {
 
 /* 标签页面 */
 div#tag {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.4);
 }
 [data-theme="dark"] div#tag {
   background: rgba(22, 22, 22, 0.6);
@@ -331,7 +332,7 @@ div#tag {
 
 /* 分类页面 */
 div#category {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.4);
 }
 [data-theme="dark"] div#category {
   background: rgba(22, 22, 22, 0.6);
@@ -391,12 +392,6 @@ div#category {
   background: transparent !important;
 }
 
-  /* 夜间模式菜单栏发光字 */
-[data-theme="dark"] #nav .site-page,
-[data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {
-  text-shadow: 0 0 2px var(--theme-color) !important;
-}
-
 /* 手机端适配 */
 [data-theme="dark"] #sidebar #sidebar-menus .menus_items .site-page {
   text-shadow: 0 0 2px var(--theme-color) !important;
@@ -412,56 +407,6 @@ div#category {
   left: 0 !important;
   /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
 }
-/* 侧边栏个人信息卡片动态渐变色 */
-/* #aside-content > .card-widget.card-info {
-  background: linear-gradient(
-    -45deg,
-    #e8d8b9,
-    #eccec5,
-    #a3e9eb,
-    #bdbdf0,
-    #eec1ea
-  );
-  box-shadow: 0 0 5px rgb(66, 68, 68);
-  position: relative;
-  background-size: 400% 400%;
-  -webkit-animation: Gradient 10s ease infinite;
-  -moz-animation: Gradient 10s ease infinite;
-  animation: Gradient 10s ease infinite !important;
-}
-@-webkit-keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@-moz-keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-} */
 
 /* 黑夜模式适配 */
 [data-theme="dark"] #aside-content > .card-widget.card-info {
