@@ -7,7 +7,7 @@ function createtime1() {
     var dnum = Math.floor(days);
 
     var ascll = [
-        `欢迎来到vianao`,
+        `欢迎来到Fomalhaut🥝の小家!`,
         `Future is now 🍭🍭🍭`,
         `
         
@@ -60,7 +60,7 @@ function createtime2() {
     setTimeout(
         console.warn.bind(
             console,
-            "%c ⚡ Powered by vianao %c 你正在访问vianao",
+            "%c ⚡ Powered by Fomalhaut🥝 %c 你正在访问Fomalhaut🥝の小家",
             "color:white; background-color:#f0ad4e",
             ""
         )
