@@ -7604,12 +7604,6 @@ ul.menus_item_child {
 .share-link .share-main .share-main-all .reward-dec {
   font-size: 0.6rem;
 }
-.post-tools .post-tools-left > div {
-  margin: 0;
-}
-.post-tools .post-tools-left {
-  width: auto;
-}
 .relatedPosts {
   margin-top: 40px;
 }
@@ -12780,7 +12774,7 @@ html.hide-aside .layout > div:first-child {
   }
 }
 .loading-img {
-  background: url(https://img01.anzhiy.cn/useruploads/0/2023/04/23/644405cbf0c99.jpg) no-repeat center center;
+  background: url(https://w.wallhaven.cc/full/5g/wallhaven-5gk6m1.jpg) no-repeat center center;
   background-size: cover;
 }
 #aside-content .card-widget#card-wechat {
