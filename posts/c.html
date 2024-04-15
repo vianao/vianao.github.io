@@ -1,0 +1,849 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>c学习笔记 | anevol</title><meta name="keywords" content="vianao,博客,vianao博客,ao,love Na,归途也还可爱,唯诺"><meta name="author" content="ao"><meta name="copyright" content="ao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="c学习笔记"><meta name="application-name" content="c学习笔记"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="bookmark" href="/img/siteicon/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/siteicon/apple-touch-icon.png"><link rel="apple-touch-icon" sizes="192x192" href="/img/siteicon/apple-touch-icon.png"><link rel="apple-touch-icon" sizes="512x512" href="/img/siteicon/apple-touch-icon.png"><link rel="apple-touch-startup-image" media="screen and (device-width:320px) and (device-height:568px) and (-webkit-device-pixel-ratio:2) and (orientation:landscape)" href="/img/siteicon/splashIcons/icon_1136x640.png"><link rel="apple-touch-startup-image" media="screen and (device-width:320px) and (device-height:568px) and (-webkit-device-pixel-ratio:2) and (orientation:portrait)" href="/img/siteicon/splashIcons/icon_640x1136.png"><link rel="apple-touch-startup-image" media="screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:3) and (orientation:landscape)" href="/img/siteicon/splashIcons/icon_2688x1242.png"><link rel="apple-touch-startup-image" media="screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:2) and (orientation:landscape)" href="/img/siteicon/splashIcons/icon_1792x828.png"><link rel="apple-touch-startup-image" media="screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) and (orientation:portrait)" href="/img/siteicon/splashIcons/icon_1125x2436.png"><link rel="apple-touch-startup-image" media="screen and (device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:2) and (orientation:portrait)" href="/img/siteicon/splashIcons/icon_828x1792.png"><link rel="apple-touch-startup-image" media="screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) and (orientation:landscape)" href="/img/siteicon/splashIcons/icon_2436x1125.png"><link rel="apple-touch-startup-image" media="screen and (device-width:414px) and (device-height:736px) and (-webkit-device-pixel-ratio:3) and (orientation:portrait)" href="/img/siteicon/splashIcons/icon_1242x2208.png"><link rel="apple-touch-startup-image" media="screen and (device-width:414px) and (device-height:736px) and (-webkit-device-pixel-ratio:3) and (orientation:landscape)" href="/img/siteicon/splashIcons/icon_2208x1242.png"><link rel="apple-touch-startup-image" media="screen and (device-width:375px) and (device-height:667px) and (-webkit-device-pixel-ratio:2) and (orientation:landscape)" href="/img/siteicon/splashIcons/icon_1334x750.png"><link rel="apple-touch-startup-image" media="screen and (device-width:375px) and (device-height:667px) and (-webkit-device-pixel-ratio:2) and (orientation:portrait)" href="/img/siteicon/splashIcons/icon_750x1334.png"><link rel="apple-touch-startup-image" media="screen and (device-width:1024px) and (device-height:1366px) and (-webkit-device-pixel-ratio:2) and (orientation:landscape)" href="/img/siteicon/splashIcons/icon_2732x2048.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.anevol.cn/posts/c"><link rel="preconnect" href="//cdn.jsdelivr.net"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.3.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0.31/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#3b70fc","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://npm.elemecdn.com/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://npm.elemecdn.com/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'c学习笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-04-15 18:57:11'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              // const now = new Date()
+              // const hour = now.getHours()
+              // const isNight = hour <= 6 || hour >= 18
+              // isNight ? activateDarkMode() : activateLightMode()
+              activateDarkMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon fas fa-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://blog.anevol.cn/" title="博客" target="_blank"><img class="back-menu-item-icon" src="/img/favicon.png"/><span class="back-menu-item-text">博客</span></a><a class="back-menu-item" href="https://anevol.cn/" title="主页" target="_blank"><img class="back-menu-item-icon" src="/img/favicon.png"/><span class="back-menu-item-text">主页</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" href="https://alist.anevol.cn/" title="alist" target="_blank"><img class="back-menu-item-icon" src="/img/512.png"/><span class="back-menu-item-text">alist</span></a><a class="back-menu-item" href="https://music.anevol.cn/" title="music" target="_blank"><img class="back-menu-item-icon" src="/img/512.png"/><span class="back-menu-item-text">music</span></a></div></div></div></div><a id="site-name" href="/"><div class="title">anevol</div><i class="fa-solid fa-house"></i></a></span><div class="mask-name-container"><center id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></center></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="fa-fw fas fa-archive faa-tada"></i><span> 总览</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="fa-fw fas fa-shapes faa-tada"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="fa-fw fas fa-tags faa-tada"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child" style="left:17px;"><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="fa-fw fas fas fa-lightbulb faa-tada"></i><span> 随便说说</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child" style="left:-31px;"><li><a class="site-page child faa-parent animated-hover" href="/about/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-zhifeiji"></use></svg><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="fa-fw fas fa-envelope faa-tada"></i><span> 留言板</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="fas fa-dice" style="font-size:1.2rem"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="nav-button" id="darkmode_navswitch"><a class="darkmode_switchbutton" type="button" href="javascript:void(0);" title="浅色和深色模式转换" onclick="rm.switchDarkMode()"><i class="fas fa-adjust"></i></a></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="fas fa-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">c学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-15T10:55:22.115Z" title="发表于 2024-04-15 18:55:22">2024-04-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-15T10:57:11.554Z" title="更新于 2024-04-15 18:57:11">2024-04-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%BF%B9/">学习笔迹</a></span></div><div class="meta-secondline"></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="http://pan.anevol.cn/1816172447/cdn/blog_images/picture/img/p2.png"></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><code>printf</code>是一个标准库函数，用于格式化输出。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;k=%d,k=%o,k=%x\n&quot;</span>,k,k,k);</span><br></pre></td></tr></table></figure>
+
+<p>这里的<code>&quot;k=%d,k=%o,k=%x\n&quot;</code>是<code>printf</code>函数的格式字符串，它定义了输出的格式：</p>
+<ul>
+<li><code>%d</code>表示以十进制整数形式输出<code>k</code>的值。</li>
+<li><code>%o</code>表示以八进制整数形式输出<code>k</code>的值。</li>
+<li><code>%x</code>表示以十六进制整数形式输出<code>k</code>的值。</li>
+<li><code>%u</code>：用于打印或读取无符号十进制整数。</li>
+<li><code>%c</code>：用于打印或读取字符。当打印时，它会打印字符的ASCII表示；当读取时，它会读取单个字符。</li>
+<li><code>%s</code>：用于打印或读取字符串。</li>
+<li><code>%f</code>、<code>%e</code> 或 <code>%E</code>、<code>%g</code> 或 <code>%G</code>：用于打印或读取。</li>
+</ul>
+<p><code>\n</code>是一个换行符，表示输出结束后换行。</p>
+<p>所以，这段代码的意思是以十进制、八进制和十六进制的形式打印出变量<code>k</code>的值。这三个值将会分别以<code>k=值</code>的形式输出，每个值之间用逗号分隔，最后换行。例如，如果<code>k</code>的值为10，那么输出将会是<code>k=10,k=12,k=a</code>。这是因为10的十进制表示是10，八进制表示是12，十六进制表示是a</p>
+<p>在C语言中，合法的变量名需要遵循以下规则：</p>
+<ol>
+<li>变量名必须以字母（包括大写和小写字母）或下划线 <code>_</code> 开始。</li>
+<li>变量名的其余部分可以由字母、数字和下划线组成。</li>
+<li>变量名是<strong>区分大小写</strong>的。也就是说，<code>myVariable</code>、<code>myvariable</code> 和 <code>MYVARIABLE</code> 是三个不同的变量。</li>
+<li>变量名不能是C语言的保留字或关键字，如 <code>int</code>、<code>if</code> 等。</li>
+</ol>
+<p>例如，<code>myVariable1</code>、<code>_temp</code> 和 <code>i</code> 都是合法的变量名，而 <code>1myVariable</code>、<code>my-variable</code> 和 <code>if</code> 不是合法的变量名。</p>
+<p>在C语言中，字符常量是一个单独的字符，它被包含在一对单引号 <code>&#39;</code> 中。以下是一些合法字符常量的例子：</p>
+<ul>
+<li><code>&#39;a&#39;</code>：一个普通的字符</li>
+<li><code>&#39;1&#39;</code>：一个数字字符</li>
+<li><code>&#39;\t&#39;</code>：一个转义字符，代表制表符</li>
+<li><code>&#39;\n&#39;</code>：一个转义字符，代表换行符</li>
+<li><code>&#39;\\&#39;</code>：一个转义字符，代表反斜杠</li>
+<li><code>&#39;\0&#39;</code>：一个转义字符，代表空字符</li>
+</ul>
+<p>注意，字符常量只能包含一个字符。例如，<code>&#39;ab&#39;</code> 不是一个合法的字符常量，因为它包含了两个字符。但是，<code>&quot;ab&quot;</code> 是一个合法的字符串常量。在C语言中，字符串常量用双引号 <code>&quot;</code> 包围，可以包含多个字符。</p>
+<p>在 C 语言中，有以下几种关系运算符：</p>
+<ol>
+<li><code>==</code>：检查两个操作数的值是否相等，如果相等则条件为真。</li>
+<li><code>!=</code>：检查两个操作数的值是否不相等，如果不相等则条件为真。</li>
+<li><code>&gt;</code>：检查左操作数的值是否大于右操作数，如果是则条件为真。</li>
+<li><code>&lt;</code>：检查左操作数的值是否小于右操作数，如果是则条件为真。</li>
+<li><code>&gt;=</code>：检查左操作数的值是否大于或等于右操作数，如果是则条件为真。</li>
+<li><code>&lt;=</code>：检查左操作数的值是否小于或等于右操作数，如果是则条件为真。</li>
+</ol>
+<p>这些运算符主要用于在各种条件语句（如 <code>if</code>，<code>while</code>）中比较变量和值。</p>
+<p>在 C 语言中，不同的进制数有不同的表示方法：</p>
+<ol>
+<li><strong>十进制</strong>：默认情况下，没有前缀的数字被视为十进制数，例如 <code>123</code>。</li>
+<li><strong>八进制</strong>：以 <code>0</code> 开头的数字被视为八进制数，例如 <code>023</code>。</li>
+<li><strong>十六进制</strong>：以 <code>0x</code> 或 <code>0X</code> 开头的数字被视为十六进制数，例如 <code>0x23</code> 或 <code>0X23</code>。</li>
+<li><strong>二进制</strong>：在 C 语言标准中，没有直接的表示方法来表示二进制数。但是，一些编译器（如 GCC）允许使用 <code>0b</code> 或 <code>0B</code> 开头的数字来表示二进制数，例如 <code>0b1010</code> 或 <code>0B1010</code>。</li>
+</ol>
+<p>请注意，不是所有的 C 语言编译器都支持 <code>0b</code> 或 <code>0B</code> 开头的二进制数表示法。</p>
+<p>在 C 语言中，这些运算符的含义如下：</p>
+<ol>
+<li><strong>算术运算符</strong>：<ul>
+<li><code>+</code>：加法运算符，用于计算两个数的和。</li>
+<li><code>-</code>：减法运算符，用于计算两个数的差。</li>
+<li><code>*</code>：乘法运算符，用于计算两个数的积。</li>
+<li><code>/</code>：除法运算符，用于计算两个数的商。</li>
+<li><code>%</code>：取余运算符，用于计算两个数相除后的余数。</li>
+</ul>
+</li>
+<li><strong>关系运算符</strong>：<ul>
+<li><code>==</code>：等于运算符，如果两个操作数相等，则条件为真。</li>
+<li><code>!=</code>：不等于运算符，如果两个操作数不相等，则条件为真。</li>
+<li><code>&gt;</code>：大于运算符，如果左操作数大于右操作数，则条件为真。</li>
+<li><code>&lt;</code>：小于运算符，如果左操作数小于右操作数，则条件为真。</li>
+<li><code>&gt;=</code>：大于或等于运算符，如果左操作数大于或等于右操作数，则条件为真。</li>
+<li><code>&lt;=</code>：小于或等于运算符，如果左操作数小于或等于右操作数，则条件为真。</li>
+</ul>
+</li>
+<li><strong>逻辑运算符</strong>：<ul>
+<li><code>&amp;&amp;</code>：逻辑与运算符，如果两个操作数都非零，则条件为真。</li>
+<li><code>||</code>：逻辑或运算符，如果两个操作数中任何一个非零，则条件为真。</li>
+<li><code>!</code>：逻辑非运算符，用来反转操作数的逻辑状态。如果条件为真，则逻辑非运算符会使其为假。</li>
+</ul>
+</li>
+<li><strong>位运算符</strong>：<ul>
+<li><code>&amp;</code>：按位与运算符，如果两个相应的二进制位都为1，则该位的结果值为1，否则为0。</li>
+<li><code>|</code>：按位或运算符，如果两个相应的二进制位中至少有一个为1，则该位的结果值为1，否则为0。</li>
+<li><code>^</code>：按位异或运算符，如果两个相应的二进制位值相同则为0，否则为1。</li>
+<li><code>~</code>：按位取反运算符，用于翻转操作数的所有位。</li>
+<li><code>&lt;&lt;</code>：左移动运算符，左操作数的值向左移动右操作数指定的位数。</li>
+<li><code>&gt;&gt;</code>：右移动运算符，左操作数的值向右移动右操作数指定的位数。</li>
+</ul>
+</li>
+<li><strong>赋值运算符</strong>：<ul>
+<li><code>=</code>：简单的赋值运算符，把右边操作数的值赋给左边的操作数。</li>
+<li><code>+=</code>：加和赋值运算符，把左和右的操作数相加赋值给左操作数。</li>
+<li><code>-=</code>：减和赋值运算符，把左和右的操作数相减赋值给左操作数。</li>
+<li><code>*=</code>：乘和赋值运算符，把左和右的操作数相乘赋值给左操作数。</li>
+<li><code>/=</code>：除和赋值运算符，把左和右的操作数相除赋值给左操作数。</li>
+<li><code>%=</code>：求模和赋值运算符，用右操作数对左操作数取模后把结果赋值给左操作数。</li>
+</ul>
+</li>
+<li><strong>递增和递减运算符</strong>：<ul>
+<li><code>++</code>：递增运算符，用于增加操作数的值。可以放在操作数前面（前缀）或后面（后缀）。</li>
+<li><code>--</code>：递减运算符，用于减少操作数的值。可以放在操作数前面（前缀）或后面（后缀）。</li>
+</ul>
+</li>
+<li><strong>条件运算符</strong>：<ul>
+<li><code>? :</code>：条件运算符也被称为三元运算符。该运算符有3个操作数，并需要判断布尔表达式的值。如果布尔表达式的值为真，则返回 <code>?</code> 和 <code>:</code> 之间的表达式的值，否则返回 <code>:</code> 后面的表达式的值。</li>
+</ul>
+</li>
+<li><strong>逗号运算符</strong>：<ul>
+<li><code>,</code>：逗号运算符用于链接两个或更多的表达式。这些表达式从左到右依次计算，并且最后一个表达式的值作为整个逗号表达式的值。</li>
+</ul>
+</li>
+<li><strong>sizeof 运算符</strong>：<ul>
+<li><code>sizeof</code>：sizeof 运算符用于获取存储其操作数所需的空间大小，以字节为单位。</li>
+</ul>
+</li>
+</ol>
+<p><code>scanf</code> 函数在 C 语言中用于从标准输入（通常是键盘）读取数据。它的名字来自 “scan formatted”，意思是按照指定的格式读取输入。</p>
+<p><code>scanf</code> 函数的第一个参数是一个格式字符串，它决定了接下来要读取什么类型的数据，以及如何读取。格式字符串中的格式说明符用于指定要读取的数据的类型。以下是一些常见的格式说明符：</p>
+<ul>
+<li><code>%d</code>：用于读取整数。</li>
+<li><code>%f</code>：用于读取浮点数。</li>
+<li><code>%c</code>：用于读取字符。</li>
+<li><code>%s</code>：用于读取字符串。</li>
+<li><code>%u</code>：用于读取无符号整数。</li>
+<li><code>%ld</code>：用于读取长整数。</li>
+<li><code>%lf</code>：用于读取双精度浮点数。</li>
+</ul>
+<p>除了这些基本的格式说明符，<code>scanf</code> 还支持一些修饰符，例如：</p>
+<ul>
+<li><code>%3d</code>：读取最多 3 位的整数。</li>
+<li><code>%5s</code>：读取最多 5 个字符的字符串。</li>
+</ul>
+<p>此外，<code>scanf</code> 还支持一些转义序列，例如 <code>\n</code>（换行符），<code>\t</code>（制表符）等。</p>
+<p><code>scanf</code> 函数的其他参数是一系列指针，它们指向用于存储读取的数据的变量。这些参数必须是指针，因为 <code>scanf</code> 需要修改这些变量的值。</p>
+<p>例如，下面的代码会读取一个整数和一个浮点数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="type">float</span> f;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d%f&quot;</span>, &amp;i, &amp;f);</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>%d</code> 和 <code>%f</code> 是格式说明符，<code>&amp;i</code> 和 <code>&amp;f</code> 是指向变量 <code>i</code> 和 <code>f</code> 的指针</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://blog.anevol.cn">ao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blog.anevol.cn/posts/c.html">http://blog.anevol.cn/posts/c.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blog.anevol.cn" target="_blank">anevol</a>！</span></div></div><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__category-list"><a class="post-meta__box__categoryes" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%BF%B9/"><span class="categoryes-punctuation"> <svg class="icon iconfont icon-biaoqian" title="学习笔迹" aria-hidden="true"><use xlink:href="#icon-fenlei"></use></svg></span>学习笔迹<span class="categoryesPageCount">6</span></a></div><div class="post-meta__box__tag-list"></div></div><div class="post_share"><div class="social-share" data-image="http://pan.anevol.cn/1816172447/cdn/blog_images/picture/img/p2.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://npm.elemecdn.com/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://npm.elemecdn.com/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/coin/coin.min.css" media="defer" onload="this.media='all'"/><div class="post-reward"><button class="tip-button reward-button"><span class="tip-button__text">不给糖果就捣蛋</span><div class="coin-wrapper"><div class="coin"><div class="coin__middle"></div><div class="coin__back"></div><div class="coin__front"></div></div></div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://image.anevol.cn/V.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.anevol.cn/V.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://image.anevol.cn/Ali.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.anevol.cn/Ali.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></button></div><audio id="coinAudio" src="https://npm.elemecdn.com/akilar-candyassets@1.0.36/audio/aowu.m4a"></audio><script defer="defer" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/coin/coin.js"></script><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/16bd.html"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic3.zhimg.com/80/v2-961b311aa7f4069fc910254d2372355e_720w.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">英语模板</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="author-info-top"> <div class="card-info-avatar"></div></div><div class="author-info__sayhi" id="author-info__sayhi"></div><h1 class="author-info__name">ao</h1><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">学习、运维、开发</b>相关的问题和看法。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div></div><div class="banner-button-group"><a class="banner-button" onclick="pjax.loadUrl(&quot;/about/&quot;)"><span class="banner-button-text">了解更多</span><i class="fas fa-circle-right"></i></a></div><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/vianao" target="_blank" title="Github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-gitHub"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=vianao@qq.com" target="_blank" title="Email"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-youxiang"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://res.abeim.cn/api/qq/?qq=1849792339" target="_blank" title="QQ"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-QQ1"></use></svg></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/c.html" title="c学习笔记"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://pan.anevol.cn/1816172447/cdn/blog_images/picture/img/p2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c学习笔记"/></a><div class="content"><a class="title" href="/posts/c.html" title="c学习笔记">c学习笔记</a><time datetime="2024-04-15T10:55:22.115Z" title="发表于 2024-04-15 18:55:22">2024-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/16bd.html" title="英语模板"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic3.zhimg.com/80/v2-961b311aa7f4069fc910254d2372355e_720w.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="英语模板"/></a><div class="content"><a class="title" href="/posts/16bd.html" title="英语模板">英语模板</a><time datetime="2024-03-21T09:28:39.892Z" title="发表于 2024-03-21 17:28:39">2024-03-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/faca.html" title="搭建 Fisco-BCOS 区块链系统"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://pan.anevol.cn/1816172447/cdn/blog_images/picture/img/p3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建 Fisco-BCOS 区块链系统"/></a><div class="content"><a class="title" href="/posts/faca.html" title="搭建 Fisco-BCOS 区块链系统">搭建 Fisco-BCOS 区块链系统</a><time datetime="2023-05-22T15:12:49.928Z" title="发表于 2023-05-22 23:12:49">2023-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/21ad.html" title="搭建博客"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://pan.anevol.cn/1816172447/cdn/blog_images/picture/img/p1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建博客"/></a><div class="content"><a class="title" href="/posts/21ad.html" title="搭建博客">搭建博客</a><time datetime="2023-04-20T12:26:12.841Z" title="发表于 2023-04-20 20:26:12">2023-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/74d3.html" title="基于docker-compose编排部署微服务快速开发框架"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://anevol.cn/img/background8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于docker-compose编排部署微服务快速开发框架"/></a><div class="content"><a class="title" href="/posts/74d3.html" title="基于docker-compose编排部署微服务快速开发框架">基于docker-compose编排部署微服务快速开发框架</a><time datetime="2023-04-13T09:09:40.648Z" title="发表于 2023-04-13 17:09:40">2023-04-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ao</div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.anevol.cn/touxaing.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="fa-fw fas fa-archive faa-tada"></i><span> 总览</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="fa-fw fas fa-shapes faa-tada"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="fa-fw fas fa-tags faa-tada"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child" style="left:17px;"><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="fa-fw fas fas fa-lightbulb faa-tada"></i><span> 随便说说</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child" style="left:-31px;"><li><a class="site-page child faa-parent animated-hover" href="/about/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-zhifeiji"></use></svg><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="fa-fw fas fa-envelope faa-tada"></i><span> 留言板</span></a></li></ul></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="center-console" type="button" title="中控台"><i class="fas fa-fish-fins"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="nav-music"><div id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()">播放音乐</div><div id="console-music-bg"></div><meting-js id="7762071887" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="console"><div class="close-btn" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"><i class="fas fa-circle-xmark"></i></div><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://image.anevol.cn/V.jpg" target="_blank"><img class="post-qr-code-img" alt="wechat" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.anevol.cn/V.jpg"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://image.anevol.cn/Ali.jpg" target="_blank"><img class="post-qr-code-img" alt="alipay" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://image.anevol.cn/Ali.jpg"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments" onclick="anzhiyu.hideConsole()"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> <span>最新评论</span></span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags" onclick="anzhiyu.hideConsole()"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/openstack/" style="font-size: 1.15em; color: rgb(74, 181, 75)">openstack<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.15em; color: rgb(186, 116, 146)">博客<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history" onclick="anzhiyu.hideConsole()"><div class="item-headline"><i class="fas fa-archive"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">五月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" onclick="rm.switchDarkMode()" title="显示模式切换" href="javascript:void(0);"><i class="fas fa-moon" style="font-size: 1rem;"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="fas fa-arrows-alt-h"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="fa-solid fa-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="fas fa-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="fa-solid fa-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="fa-solid fa-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="fa-solid fa-arrow-rotate-right"></i></div><div class="rightMenu-item" id="menu-top"><i class="fa-solid fa-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="fas fa-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="fas fa-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="fas fa-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="fas fa-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="fas fa-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="fas fa-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="fas fa-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="fas fa-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="fa-solid fa-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="fa-solid fa-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="fa-solid fa-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="fas fa-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="fas fa-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="fas fa-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="fas fa-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="fas fa-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="fas fa-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="fas fa-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="fas fa-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="fa-solid fa-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="fa-solid fa-moon"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="fas fa-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.0.8/source/js/utils.js"></script><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.0.8/source/js/main.js"></script><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.0.8/source/js/tw_cn.js"></script><script src="https://npm.elemecdn.com/@fancyapps/ui@4.0.31/dist/fancybox.umd.js"></script><script src="https://npm.elemecdn.com/instant.page@5.1.1/instantpage.js" type="module"></script><script src="https://npm.elemecdn.com/vanilla-lazyload@17.3.1/dist/lazyload.iife.min.js"></script><script src="https://npm.elemecdn.com/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.0.8/source/js/search/local-search.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/bubble/bubble.js"></script><script>//动态标题
+let leaveTitle = '再看一下嘛！';
+let backTitle = '欢迎回来呀！';
+let OriginTitile = document.title
+let titleTime
+document.addEventListener('visibilitychange', function () {
+  if (document.hidden) {
+    //离开当前页面时标签显示内容
+    document.title = leaveTitle
+    clearTimeout(titleTime)
+  } else {
+    //返回当前页面时标签显示内容
+    document.title = backTitle + OriginTitile
+    //两秒后变回正常标题
+    titleTime = setTimeout(function () {
+      document.title = OriginTitile
+    }, 2000)
+  }
+})</script><script data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/catalog-bar/catalog-bar.js"></script><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/categoryBar/categoryBar.js"></script><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script async="async">// 初始化函数
+let rm = {};
+
+//禁止图片拖拽
+let imgElements = document.getElementsByTagName("img");
+for (let i = 0; i < imgElements.length; i++) {
+  imgElements[i].addEventListener("dragstart", function (event) {
+    event.preventDefault();
+  });
+}
+
+// 显示菜单
+rm.showRightMenu = function (isTrue, x = 0, y = 0) {
+  let rightMenu = document.getElementById("rightMenu");
+  rightMenu.style.top = x + "px";
+  rightMenu.style.left = y + "px";
+  if (isTrue) {
+    rightMenu.style.display = "block";
+    stopMaskScroll();
+  } else {
+    rightMenu.style.display = "none";
+  }
+};
+
+// 隐藏菜单
+rm.hideRightMenu = function () {
+  rm.showRightMenu(false);
+  let rightMenuMask = document.querySelector("#rightmenu-mask");
+  rightMenuMask.style.display = "none";
+};
+
+// 尺寸
+let rmWidth = $("#rightMenu").width();
+let rmHeight = $("#rightMenu").height();
+
+// 重新定义尺寸
+rm.reloadrmSize = function () {
+  rmWidth = $("#rightMenu").width();
+  rmHeight = $("#rightMenu").height();
+};
+
+// 获取点击的href
+let domhref = "";
+let domImgSrc = "";
+let globalEvent = null;
+
+// 监听右键初始化
+window.oncontextmenu = function (event) {
+  if (document.body.clientWidth > 768) {
+    let pageX = event.clientX + 10; //加10是为了防止显示时鼠标遮在菜单上
+    let pageY = event.clientY;
+
+    //其他额外菜单
+    let $rightMenuOther = $(".rightMenuOther");
+    let $rightMenuPlugin = $(".rightMenuPlugin");
+    let $rightMenuCopyText = $("#menu-copytext");
+    let $rightMenuPasteText = $("#menu-pastetext");
+    let $rightMenuCommentText = $("#menu-commenttext");
+    let $rightMenuNewWindow = $("#menu-newwindow");
+    let $rightMenuNewWindowImg = $("#menu-newwindowimg");
+    let $rightMenuCopyLink = $("#menu-copylink");
+    let $rightMenuCopyImg = $("#menu-copyimg");
+    let $rightMenuDownloadImg = $("#menu-downloadimg");
+    let $rightMenuSearch = $("#menu-search");
+    let $rightMenuSearchBaidu = $("#menu-searchBaidu");
+    let $rightMenuMusicToggle = $("#menu-music-toggle");
+    let $rightMenuMusicBack = $("#menu-music-back");
+    let $rightMenuMusicForward = $("#menu-music-forward");
+    let $rightMenuMusicPlaylist = $("#menu-music-playlist");
+    let $rightMenuMusicCopyMusicName = $("#menu-music-copyMusicName");
+    let href = event.target.href;
+    let imgsrc = event.target.currentSrc;
+
+    // 判断模式 扩展模式为有事件
+    let pluginMode = false;
+    $rightMenuOther.show();
+    globalEvent = event;
+
+    // 检查是否需要复制 是否有选中文本
+    if (selectTextNow && window.getSelection()) {
+      pluginMode = true;
+      $rightMenuCopyText.show();
+      $rightMenuCommentText.show();
+      $rightMenuSearch.show();
+      $rightMenuSearchBaidu.show();
+    } else {
+      $rightMenuCopyText.hide();
+      $rightMenuCommentText.hide();
+      $rightMenuSearchBaidu.hide();
+      $rightMenuSearch.hide();
+    }
+
+    //检查是否右键点击了链接a标签
+    if (href) {
+      pluginMode = true;
+      $rightMenuNewWindow.show();
+      $rightMenuCopyLink.show();
+      domhref = href;
+    } else {
+      $rightMenuNewWindow.hide();
+      $rightMenuCopyLink.hide();
+    }
+
+    //检查是否需要复制图片
+    if (imgsrc) {
+      pluginMode = true;
+      $rightMenuCopyImg.show();
+      $rightMenuDownloadImg.show();
+      $rightMenuNewWindowImg.show();
+      domImgSrc = imgsrc;
+    } else {
+      $rightMenuCopyImg.hide();
+      $rightMenuDownloadImg.hide();
+      $rightMenuNewWindowImg.hide();
+    }
+
+    // 判断是否为输入框
+    if (event.target.tagName.toLowerCase() === "input" || event.target.tagName.toLowerCase() === "textarea") {
+      console.log("这是一个输入框");
+      pluginMode = true;
+      $rightMenuPasteText.show();
+    } else {
+      $rightMenuPasteText.hide();
+    }
+    const navMusicEl = document.querySelector("#nav-music");
+    //判断是否是音乐
+    if (navMusicEl && navMusicEl.contains(event.target)) {
+      pluginMode = true;
+      $rightMenuMusicToggle.show();
+      $rightMenuMusicBack.show();
+      $rightMenuMusicForward.show();
+      $rightMenuMusicPlaylist.show();
+      $rightMenuMusicCopyMusicName.show();
+    } else {
+      $rightMenuMusicToggle.hide();
+      $rightMenuMusicBack.hide();
+      $rightMenuMusicForward.hide();
+      $rightMenuMusicPlaylist.hide();
+      $rightMenuMusicCopyMusicName.hide();
+    }
+
+    // 如果不是扩展模式则隐藏扩展模块
+    if (pluginMode) {
+      $rightMenuOther.hide();
+      $rightMenuPlugin.show();
+    } else {
+      $rightMenuPlugin.hide();
+    }
+
+    rm.reloadrmSize();
+
+    // 鼠标默认显示在鼠标右下方，当鼠标靠右或考下时，将菜单显示在鼠标左方\上方
+    if (pageX + rmWidth > window.innerWidth) {
+      pageX -= rmWidth + 10;
+    }
+    if (pageY + rmHeight > window.innerHeight) {
+      pageY -= pageY + rmHeight - window.innerHeight;
+    }
+
+    rm.showRightMenu(true, pageY, pageX);
+    $("#rightmenu-mask").attr("style", "display: flex");
+    return false;
+  }
+};
+
+// 下载图片状态
+rm.downloadimging = false;
+
+// 复制图片到剪贴板
+rm.writeClipImg = function (imgsrc) {
+  console.log("按下复制");
+  rm.hideRightMenu();
+  anzhiyu.snackbarShow("正在下载中，请稍后", false, 10000);
+  if (rm.downloadimging == false) {
+    rm.downloadimging = true;
+    setTimeout(function () {
+      copyImage(imgsrc);
+      anzhiyu.snackbarShow("复制成功！图片已添加盲水印，请遵守版权协议");
+      rm.downloadimging = false;
+    }, "10000");
+  }
+};
+
+function imageToBlob(imageURL) {
+  const img = new Image();
+  const c = document.createElement("canvas");
+  const ctx = c.getContext("2d");
+  img.crossOrigin = "";
+  img.src = imageURL;
+  return new Promise(resolve => {
+    img.onload = function () {
+      c.width = this.naturalWidth;
+      c.height = this.naturalHeight;
+      ctx.drawImage(this, 0, 0);
+      c.toBlob(
+        blob => {
+          // here the image is a blob
+          resolve(blob);
+        },
+        "image/png",
+        0.75
+      );
+    };
+  });
+}
+
+async function copyImage(imageURL) {
+  const blob = await imageToBlob(imageURL);
+  const item = new ClipboardItem({ "image/png": blob });
+  navigator.clipboard.write([item]);
+}
+
+rm.switchDarkMode = function () {
+  // Switch Between Light And Dark Mode
+  const nowMode = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+  if (nowMode === "light") {
+    activateDarkMode();
+    saveToLocal.set("theme", "dark", 2);
+    GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
+  } else {
+    activateLightMode();
+    saveToLocal.set("theme", "light", 2);
+    GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
+  }
+  // handle some cases
+  typeof runMermaid === "function" && window.runMermaid();
+  rm.hideRightMenu();
+  anzhiyu.darkModeStatus();
+};
+
+rm.copyUrl = function (id) {
+  $("body").after("<input id='copyVal'></input>");
+  var text = id;
+  var input = document.getElementById("copyVal");
+  input.value = text;
+  input.select();
+  input.setSelectionRange(0, input.value.length);
+  document.execCommand("copy");
+  $("#copyVal").remove();
+};
+
+function stopMaskScroll() {
+  if (document.getElementById("rightmenu-mask")) {
+    let xscroll = document.getElementById("rightmenu-mask");
+    xscroll.addEventListener(
+      "mousewheel",
+      function (e) {
+        //阻止浏览器默认方法
+        rm.hideRightMenu();
+        // e.preventDefault();
+      },
+      false
+    );
+  }
+  if (document.getElementById("rightMenu")) {
+    let xscroll = document.getElementById("rightMenu");
+    xscroll.addEventListener(
+      "mousewheel",
+      function (e) {
+        //阻止浏览器默认方法
+        rm.hideRightMenu();
+        // e.preventDefault();
+      },
+      false
+    );
+  }
+}
+
+rm.rightmenuCopyText = function (txt) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt);
+  }
+  rm.hideRightMenu();
+};
+
+rm.copyPageUrl = function () {
+  var url = window.location.href;
+  rm.copyUrl(url);
+  anzhiyu.snackbarShow("复制本页链接地址成功", false, 2000);
+  rm.hideRightMenu();
+};
+
+rm.sharePage = function () {
+  var content = window.location.href;
+  rm.copyUrl(url);
+  anzhiyu.snackbarShow("复制本页链接地址成功", false, 2000);
+  rm.hideRightMenu();
+};
+
+// 复制当前选中文本
+var selectTextNow = "";
+document.onmouseup = document.ondblclick = selceText;
+
+function selceText() {
+  var txt;
+  if (document.selection) {
+    txt = document.selection.createRange().text;
+  } else {
+    txt = window.getSelection().toString();
+  }
+  selectTextNow = txt !== "" ? txt : "";
+}
+
+// 读取剪切板
+rm.readClipboard = function () {
+  if (navigator.clipboard) {
+    navigator.clipboard.readText().then(clipText => rm.insertAtCaret(globalEvent.target, clipText));
+  }
+};
+
+// 粘贴文本到焦点
+rm.insertAtCaret = function (elemt, value) {
+  const startPos = elemt.selectionStart,
+    endPos = elemt.selectionEnd;
+  if (document.selection) {
+    elemt.focus();
+    var sel = document.selection.createRange();
+    sel.text = value;
+    elemt.focus();
+  } else {
+    if (startPos || startPos == "0") {
+      var scrollTop = elemt.scrollTop;
+      elemt.value = elemt.value.substring(0, startPos) + value + elemt.value.substring(endPos, elemt.value.length);
+      elemt.focus();
+      elemt.selectionStart = startPos + value.length;
+      elemt.selectionEnd = startPos + value.length;
+      elemt.scrollTop = scrollTop;
+    } else {
+      elemt.value += value;
+      elemt.focus();
+    }
+  }
+};
+
+//粘贴文本
+rm.pasteText = function () {
+  const result = rm.readClipboard() || "";
+  rm.hideRightMenu();
+};
+
+//引用到评论
+rm.rightMenuCommentText = function (txt) {
+  rm.hideRightMenu();
+  const postCommentDom = document.querySelector("#post-comment");
+  var domTop = postCommentDom.offsetTop;
+  window.scrollTo(0, domTop - 80);
+  if (txt == "undefined" || txt == "null") txt = "好棒！";
+  function setText() {
+    setTimeout(() => {
+      var input = document.getElementsByClassName("el-textarea__inner")[0];
+      if (!input) setText();
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("input", true, true);
+      let inputValue = replaceAll(txt, "\n", "\n> ");
+      input.value = "> " + inputValue + "\n\n";
+      input.dispatchEvent(evt);
+      input.focus();
+      input.setSelectionRange(-1, -1);
+      if (document.getElementById("comment-tips")) {
+        document.getElementById("comment-tips").classList.add("show");
+      }
+    }, 100);
+  }
+  setText();
+};
+
+//替换所有内容
+function replaceAll(string, search, replace) {
+  return string.split(search).join(replace);
+}
+
+// 百度搜索
+rm.searchBaidu = function () {
+  anzhiyu.snackbarShow("即将跳转到百度搜索", false, 2000);
+  setTimeout(function () {
+    window.open("https://www.baidu.com/s?wd=" + selectTextNow);
+  }, "2000");
+  rm.hideRightMenu();
+};
+
+//分享链接
+rm.copyLink = function () {
+  rm.rightmenuCopyText(domhref);
+  anzhiyu.snackbarShow("已复制链接地址");
+};
+
+function addRightMenuClickEvent() {
+  // 添加点击事件
+  $("#menu-backward").on("click", function () {
+    window.history.back();
+    rm.hideRightMenu();
+  });
+  $("#menu-forward").on("click", function () {
+    window.history.forward();
+    rm.hideRightMenu();
+  });
+  $("#menu-refresh").on("click", function () {
+    window.location.reload();
+  });
+  $("#menu-top").on("click", function () {
+    anzhiyu.scrollToDest(0, 500);
+    rm.hideRightMenu();
+  });
+  $(".menu-link").on("click", rm.hideRightMenu);
+  $("#menu-darkmode").on("click", rm.switchDarkMode);
+  $("#menu-home").on("click", function () {
+    window.location.href = window.location.origin;
+  });
+  $("#menu-randomPost").on("click", function () {
+    toRandomPost();
+  });
+  $("#menu-commentBarrage").on("click", anzhiyu.switchCommentBarrage);
+  $("#rightmenu-mask").on("click", rm.hideRightMenu);
+  $("#rightmenu-mask").contextmenu(function () {
+    rm.hideRightMenu();
+    return false;
+  });
+  $("#menu-copy").on("click", rm.copyPageUrl);
+  $("#menu-pastetext").on("click", rm.pasteText);
+  $("#menu-copytext").on("click", function () {
+    rm.rightmenuCopyText(selectTextNow);
+    anzhiyu.snackbarShow("复制成功，复制和转载请标注本文地址");
+  });
+  $("#menu-commenttext").on("click", function () {
+    rm.rightMenuCommentText(selectTextNow);
+  });
+  $("#menu-newwindow").on("click", function () {
+    window.open(domhref);
+    rm.hideRightMenu();
+  });
+  $("#menu-copylink").on("click", rm.copyLink);
+  $("#menu-downloadimg").on("click", function () {
+    anzhiyu.downloadImage(domImgSrc, "anzhiyu");
+  });
+  $("#menu-newwindowimg").on("click", function () {
+    window.open(domImgSrc);
+    rm.hideRightMenu();
+  });
+  $("#menu-copyimg").on("click", function () {
+    rm.writeClipImg(domImgSrc);
+  });
+  $("#menu-searchBaidu").on("click", rm.searchBaidu);
+  //音乐
+  $("#menu-music-toggle").on("click", anzhiyu.musicToggle);
+  $("#menu-music-back").on("click", anzhiyu.musicSkipBack);
+  $("#menu-music-forward").on("click", anzhiyu.musicSkipForward);
+  $("#menu-music-copyMusicName").on("click", function () {
+    rm.rightmenuCopyText(anzhiyu.musicGetName());
+    anzhiyu.snackbarShow("复制歌曲名称成功", false, 3000);
+  });
+}
+
+addRightMenuClickEvent();</script><script data-pjax>var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+var pageHeaderEl = document.getElementById("page-header");
+var navMusicEl = document.getElementById("nav-music");
+var consoleEl = document.getElementById("console");
+// 已随机的歌曲
+var selectRandomSong = [];
+// 音乐默认声音大小
+var musicVolume = 0.8;
+// 是否切换了周杰伦音乐列表
+var changeMusicListFlag = false;
+// 当前默认播放列表
+var defaultPlayMusicList = [];
+
+document.getElementById("page-name").innerText = document.title.split(" | 安知鱼")[0];
+anzhiyu.initIndexEssay();
+anzhiyu.changeTimeInEssay();
+anzhiyu.removeBodyPaceClass();
+anzhiyu.changeTimeInAlbumDetail();
+anzhiyu.reflashEssayWaterFall();
+anzhiyu.sayhi();
+anzhiyu.stopImgRightDrag();
+anzhiyu.addNavBackgroundInit();
+anzhiyu.setValueToBodyType();
+
+anzhiyu.getCustomPlayList();
+anzhiyu.addEventListenerConsoleMusicList(false);</script><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/ali_font.js"></script><script async src="/js/console.js"></script><script id="click-heart" src="https://npm.elemecdn.com/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="true"></script><script src="https://npm.elemecdn.com/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+  window.anzhiyuScrollFnToDo && window.removeEventListener('scroll', anzhiyuScrollFnToDo)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div></body></html>
